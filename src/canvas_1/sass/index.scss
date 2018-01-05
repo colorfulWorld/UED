@@ -1,0 +1,15 @@
+@import '../../common/sass/_reset';
+@import '../../common/sass/_base';
+html{
+  display: block;
+}
+body{
+  display: block;
+  margin: 8px;
+  background-color: #0c1328;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
