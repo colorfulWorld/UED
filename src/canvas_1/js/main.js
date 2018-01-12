@@ -7,29 +7,32 @@
   if (canvas.obj.getContext) {
     //获取canvas 画布的上下文
     canvas.ctx = canvas.obj.getContext('2d')
+
+    //设置画布大小为屏幕宽高
     canvas.w = canvas.obj.width = document.body.clientWidth
     canvas.h = canvas.obj.height = document.body.clientHeight
-    console.log(canvas)
   }
+
+//新建一个image对象
   var img = new Image()
   //设置image 的source
   img.src = '../image/canvas_1.png'
+
   img.onload = function() {
     //把加载玩的图片绘制到画布上
     image.obj = img
     image.w = img.width
-    image.h = img.width
+    image.h = img.height
     image.x = parseInt(canvas.w / 2 - image.w / 2)
     image.y = 200
     canvas.ctx.drawImage(image.obj, image.x, image.y, image.w, image.h)
     image.imageData = canvas.ctx.getImageData(image.x, image.y, image.w, image.h)
-    console.log(image.imageData.length)
 
     //计算符合要求的像素
     calculate()
 
     //计算后绘到画布上
-    draw()
+   requestAnimationFrame(draw)
   }
   // 计算并保留坐标
   function calculate() {
